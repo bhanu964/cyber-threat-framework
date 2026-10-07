@@ -1,0 +1,1490 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>LG9 Finance LTD.</title>
+
+<style>
+
+/* =========================================================
+   BASE
+========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
+
+body {
+
+    font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    background:
+        radial-gradient(
+            circle at 50% -10%,
+            #1d2635 0%,
+            #080b10 48%,
+            #05070a 100%
+        );
+
+    color: #f4f5f7;
+
+    overflow-x: hidden;
+}
+
+
+/* =========================================================
+   BACKGROUND
+========================================================= */
+
+.background {
+
+    position: fixed;
+    inset: 0;
+
+    pointer-events: none;
+
+    overflow: hidden;
+
+    z-index: 0;
+}
+
+.grid {
+
+    position: absolute;
+    inset: -50%;
+
+    background-image:
+        linear-gradient(
+            rgba(255,255,255,.025) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.025) 1px,
+            transparent 1px
+        );
+
+    background-size: 70px 70px;
+
+    transform:
+        perspective(700px)
+        rotateX(60deg)
+        translateY(15%);
+
+    animation:
+        gridMove 25s linear infinite;
+}
+
+@keyframes gridMove {
+
+    from {
+        transform:
+            perspective(700px)
+            rotateX(60deg)
+            translateY(0);
+    }
+
+    to {
+        transform:
+            perspective(700px)
+            rotateX(60deg)
+            translateY(70px);
+    }
+}
+
+
+.glow {
+
+    position: absolute;
+
+    width: 650px;
+    height: 650px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(57, 101, 255, .12),
+            transparent 65%
+        );
+
+    filter: blur(30px);
+
+    animation: floatGlow 9s ease-in-out infinite;
+}
+
+.glow.one {
+    top: -250px;
+    left: -200px;
+}
+
+.glow.two {
+
+    bottom: -300px;
+    right: -200px;
+
+    animation-delay: -4s;
+}
+
+@keyframes floatGlow {
+
+    0%,100% {
+        transform: translate(0,0);
+    }
+
+    50% {
+        transform: translate(60px,40px);
+    }
+}
+
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+nav {
+
+    position: relative;
+
+    z-index: 10;
+
+    height: 82px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 6vw;
+
+    border-bottom:
+        1px solid rgba(255,255,255,.08);
+
+    backdrop-filter: blur(18px);
+
+    background:
+        rgba(5,8,12,.55);
+}
+
+.logo {
+
+    font-size: 20px;
+
+    letter-spacing: 4px;
+
+    font-weight: 700;
+}
+
+.logo span {
+
+    color: #718fff;
+}
+
+.nav-right {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 24px;
+
+    color: #9ca6b5;
+
+    font-size: 12px;
+
+    letter-spacing: 1px;
+}
+
+.live-dot {
+
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: #42e695;
+
+    box-shadow:
+        0 0 12px #42e695;
+
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+
+    0%,100% {
+        opacity: .5;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+
+    position: relative;
+
+    z-index: 2;
+
+    min-height: calc(100vh - 82px);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 80px 20px;
+}
+
+.hero-content {
+
+    max-width: 1000px;
+
+    animation:
+        heroIn 1.2s cubic-bezier(.2,.8,.2,1);
+}
+
+@keyframes heroIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(45px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.eyebrow {
+
+    color: #8297ff;
+
+    font-size: 11px;
+
+    letter-spacing: 5px;
+
+    margin-bottom: 30px;
+}
+
+.hero h1 {
+
+    margin: 0;
+
+    font-size:
+        clamp(52px, 8vw, 110px);
+
+    line-height: .9;
+
+    letter-spacing: -5px;
+
+    font-weight: 600;
+
+    background:
+        linear-gradient(
+            180deg,
+            #ffffff,
+            #8791a2
+        );
+
+    -webkit-background-clip: text;
+
+    color: transparent;
+}
+
+.hero h1 span {
+
+    display: block;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ffffff,
+            #738cff,
+            #ffffff
+        );
+
+    background-size: 200%;
+
+    -webkit-background-clip: text;
+
+    color: transparent;
+
+    animation: shine 5s linear infinite;
+}
+
+@keyframes shine {
+
+    from {
+        background-position: 200%;
+    }
+
+    to {
+        background-position: -200%;
+    }
+}
+
+.hero-sub {
+
+    margin:
+
+        35px auto
+        45px;
+
+    max-width: 570px;
+
+    color: #8994a5;
+
+    font-size: 16px;
+
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   BUTTON
+========================================================= */
+
+.portal-button {
+
+    position: relative;
+
+    border: 1px solid
+        rgba(255,255,255,.18);
+
+    background:
+        linear-gradient(
+            135deg,
+            #536fff,
+            #3048bb
+        );
+
+    color: white;
+
+    padding: 17px 34px;
+
+    border-radius: 5px;
+
+    font-size: 12px;
+
+    letter-spacing: 2px;
+
+    cursor: pointer;
+
+    overflow: hidden;
+
+    transition:
+        transform .3s,
+        box-shadow .3s;
+}
+
+.portal-button:hover {
+
+    transform:
+        translateY(-4px)
+        scale(1.02);
+
+    box-shadow:
+        0 20px 60px
+        rgba(70,95,255,.35);
+}
+
+.portal-button::after {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -120%;
+
+    width: 80%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.35),
+            transparent
+        );
+
+    transform: skewX(-20deg);
+
+    animation:
+        buttonShine 4s infinite;
+}
+
+@keyframes buttonShine {
+
+    0%,50% {
+        left: -120%;
+    }
+
+    80%,100% {
+        left: 150%;
+    }
+}
+
+
+/* =========================================================
+   MARKET TICKER
+========================================================= */
+
+.ticker {
+
+    position: absolute;
+
+    bottom: 30px;
+
+    left: 5%;
+    right: 5%;
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 50px;
+
+    color: #657083;
+
+    font-size: 10px;
+
+    letter-spacing: 1px;
+}
+
+.ticker strong {
+
+    color: #48d99a;
+
+    margin-left: 5px;
+}
+
+
+/* =========================================================
+   LOGIN
+========================================================= */
+
+.overlay {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 100;
+
+    display: none;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+        rgba(2,4,7,.78);
+
+    backdrop-filter:
+        blur(25px);
+}
+
+.login {
+
+    width: min(430px,90vw);
+
+    padding: 42px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.13);
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(24,30,42,.96),
+            rgba(8,11,16,.96)
+        );
+
+    box-shadow:
+        0 40px 120px
+        rgba(0,0,0,.6);
+
+    animation:
+        modalIn .7s cubic-bezier(.2,.8,.2,1);
+}
+
+@keyframes modalIn {
+
+    from {
+        opacity: 0;
+        transform:
+            translateY(35px)
+            scale(.96);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+.login h2 {
+
+    margin: 0;
+
+    font-size: 27px;
+
+    font-weight: 500;
+}
+
+.login p {
+
+    color: #7d8796;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+
+    margin-bottom: 30px;
+}
+
+.field {
+
+    margin-bottom: 18px;
+}
+
+.field label {
+
+    display: block;
+
+    color: #8994a5;
+
+    font-size: 11px;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 8px;
+}
+
+.field input {
+
+    width: 100%;
+
+    padding: 14px;
+
+    border-radius: 5px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.1);
+
+    background:
+        rgba(0,0,0,.35);
+
+    color: white;
+
+    outline: none;
+
+    transition:
+        border .25s,
+        box-shadow .25s;
+}
+
+.field input:focus {
+
+    border-color: #627dff;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(98,125,255,.1);
+}
+
+.login-button {
+
+    width: 100%;
+
+    padding: 14px;
+
+    border: none;
+
+    border-radius: 5px;
+
+    background: #536fff;
+
+    color: white;
+
+    font-weight: 600;
+
+    letter-spacing: 1px;
+
+    cursor: pointer;
+
+    margin-top: 10px;
+}
+
+.lab-warning {
+
+    margin-top: 20px;
+
+    padding: 11px;
+
+    border:
+        1px solid
+        rgba(220,170,50,.2);
+
+    background:
+        rgba(220,170,50,.05);
+
+    color: #a9a07e;
+
+    font-size: 10px;
+
+    line-height: 1.5;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   BANKING DASHBOARD
+========================================================= */
+
+.client {
+
+    display: none;
+
+    position: relative;
+
+    z-index: 2;
+
+    padding: 55px 6vw;
+
+    min-height: calc(100vh - 82px);
+}
+
+.client-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: end;
+
+    margin-bottom: 35px;
+}
+
+.client-header h1 {
+
+    margin: 5px 0;
+
+    font-size: 38px;
+
+    font-weight: 500;
+}
+
+.muted {
+
+    color: #788395;
+
+    font-size: 12px;
+}
+
+.secure-status {
+
+    color: #45d994;
+
+    font-size: 11px;
+
+    letter-spacing: 1px;
+}
+
+
+/* cards */
+
+.stats {
+
+    display: grid;
+
+    grid-template-columns:
+        2fr 1fr 1fr;
+
+    gap: 18px;
+
+    margin-bottom: 20px;
+}
+
+.stat {
+
+    position: relative;
+
+    overflow: hidden;
+
+    padding: 27px;
+
+    min-height: 145px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.09);
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(24,31,43,.8),
+            rgba(9,12,17,.8)
+        );
+
+    transition:
+        transform .3s,
+        border .3s;
+}
+
+.stat:hover {
+
+    transform: translateY(-5px);
+
+    border-color:
+        rgba(110,130,255,.35);
+}
+
+.stat-label {
+
+    color: #788395;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+}
+
+.stat-value {
+
+    margin-top: 15px;
+
+    font-size: 31px;
+
+    font-weight: 500;
+}
+
+.green {
+
+    color: #49da9a;
+}
+
+
+/* chart */
+
+.chart {
+
+    height: 240px;
+
+    padding: 25px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.09);
+
+    border-radius: 10px;
+
+    background:
+        rgba(11,15,21,.7);
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.chart-title {
+
+    font-size: 11px;
+
+    color: #8c96a6;
+
+    letter-spacing: 1px;
+}
+
+.chart svg {
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    width: 100%;
+    height: 170px;
+}
+
+.chart-line {
+
+    stroke-dasharray: 1200;
+
+    stroke-dashoffset: 1200;
+
+    animation:
+        drawChart 3s ease forwards;
+}
+
+@keyframes drawChart {
+
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:800px) {
+
+    .stats {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .ticker {
+
+        display: none;
+
+    }
+
+    .hero h1 {
+
+        letter-spacing: -3px;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =======================================================
+     BACKGROUND
+======================================================== -->
+
+<div class="background">
+
+    <div class="grid"></div>
+
+    <div class="glow one"></div>
+
+    <div class="glow two"></div>
+
+</div>
+
+
+<!-- =======================================================
+     NAV
+======================================================== -->
+
+<nav>
+
+    <div class="logo">
+        LG9 <span>FINANCE</span>
+    </div>
+
+    <div class="nav-right">
+
+        <div class="live-dot"></div>
+
+        SYSTEM OPERATIONAL
+
+        <span>
+            2026
+        </span>
+
+    </div>
+
+</nav>
+
+
+<!-- =======================================================
+     HERO
+======================================================== -->
+
+<section
+    class="hero"
+    id="landing"
+>
+
+    <div class="hero-content">
+
+        <div class="eyebrow">
+            LG9 FINANCE LTD. · PRIVATE CLIENT SERVICES
+        </div>
+
+        <h1>
+
+            CAPITAL
+
+            <span>
+                REIMAGINED.
+            </span>
+
+        </h1>
+
+        <div class="hero-sub">
+
+            Institutional intelligence.
+            Intelligent wealth management.
+            A new standard for connected finance.
+
+        </div>
+
+        <button
+            class="portal-button"
+            onclick="openLogin()"
+        >
+
+            ACCESS PRIVATE PORTAL
+
+        </button>
+
+    </div>
+
+
+    <div class="ticker">
+
+        <div>
+            LG9 INDEX
+            <strong>+4.82%</strong>
+        </div>
+
+        <div>
+            GLOBAL EQUITIES
+            <strong>+1.24%</strong>
+        </div>
+
+        <div>
+            FIXED INCOME
+            <strong>+0.62%</strong>
+        </div>
+
+        <div>
+            SYSTEM STATUS
+            <strong>ONLINE</strong>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =======================================================
+     LOGIN
+======================================================== -->
+
+<div
+    class="overlay"
+    id="loginOverlay"
+>
+
+    <div class="login">
+
+        <h2>
+            Private Client Portal
+        </h2>
+
+        <p>
+            Authenticate to access your
+            LG9 Finance portfolio.
+        </p>
+
+
+        <form id="loginForm">
+
+            <div class="field">
+
+                <label>
+                    CUSTOMER ID
+                </label>
+
+                <input
+                    id="customerId"
+                    autocomplete="off"
+                    placeholder="Enter customer ID"
+                >
+
+            </div>
+
+
+            <div class="field">
+
+                <label>
+                    PASSWORD
+                </label>
+
+                <input
+                    id="password"
+                    type="password"
+                    autocomplete="off"
+                    placeholder="Enter password"
+                >
+
+            </div>
+
+
+            <button
+                class="login-button"
+                type="submit"
+            >
+
+                AUTHENTICATE
+
+            </button>
+
+        </form>
+
+
+        <div class="lab-warning">
+
+            CYBERSECURITY LAB · CONTROLLED DEMONSTRATION
+
+            <br>
+
+            Use demonstration credentials only.
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =======================================================
+     CLIENT DASHBOARD
+======================================================== -->
+
+<section
+    class="client"
+    id="client"
+>
+
+    <div class="client-header">
+
+        <div>
+
+            <div class="muted">
+                PRIVATE CLIENT
+            </div>
+
+            <h1 id="welcome">
+                Welcome
+            </h1>
+
+            <div class="muted">
+                LG9 Finance Wealth Platform
+            </div>
+
+        </div>
+
+        <div class="secure-status">
+            ● SECURE SESSION
+        </div>
+
+    </div>
+
+
+    <div class="stats">
+
+
+        <div class="stat">
+
+            <div class="stat-label">
+                TOTAL PORTFOLIO
+            </div>
+
+            <div class="stat-value">
+                ₹1,24,580.00
+            </div>
+
+            <div class="green">
+                +4.82% · THIS MONTH
+            </div>
+
+        </div>
+
+
+        <div class="stat">
+
+            <div class="stat-label">
+                AVAILABLE CASH
+            </div>
+
+            <div class="stat-value">
+                ₹20,380
+            </div>
+
+        </div>
+
+
+        <div class="stat">
+
+            <div class="stat-label">
+                RISK PROFILE
+            </div>
+
+            <div class="stat-value">
+                BALANCED
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="chart">
+
+        <div class="chart-title">
+            PORTFOLIO PERFORMANCE · 30 DAYS
+        </div>
+
+
+        <svg
+            viewBox="0 0 1000 180"
+            preserveAspectRatio="none"
+        >
+
+            <defs>
+
+                <linearGradient
+                    id="area"
+                    x1="0"
+                    x2="0"
+                    y1="0"
+                    y2="1"
+                >
+
+                    <stop
+                        offset="0%"
+                        stop-color="#536fff"
+                        stop-opacity=".3"
+                    />
+
+                    <stop
+                        offset="100%"
+                        stop-color="#536fff"
+                        stop-opacity="0"
+                    />
+
+                </linearGradient>
+
+            </defs>
+
+
+            <path
+                d="
+                M0 150
+                C80 130 100 140 160 115
+                C220 90 260 120 320 95
+                C380 70 420 100 480 70
+                C550 35 600 75 650 55
+                C710 30 750 65 810 35
+                C880 5 930 45 1000 15
+                L1000 180
+                L0 180
+                Z
+                "
+                fill="url(#area)"
+            />
+
+
+            <path
+                class="chart-line"
+                d="
+                M0 150
+                C80 130 100 140 160 115
+                C220 90 260 120 320 95
+                C380 70 420 100 480 70
+                C550 35 600 75 650 55
+                C710 30 750 65 810 35
+                C880 5 930 45 1000 15
+                "
+                fill="none"
+                stroke="#7187ff"
+                stroke-width="3"
+            />
+
+        </svg>
+
+    </div>
+
+
+    <div
+        class="stat"
+        style="margin-top:20px"
+    >
+
+        <div class="stat-label">
+            RECENT ACTIVITY
+        </div>
+
+        <div
+            style="
+            margin-top:20px;
+            color:#c9d0da;
+            line-height:2.2;
+            font-size:13px;
+            "
+        >
+
+            <div>
+                ✓ Portfolio overview accessed
+            </div>
+
+            <div>
+                ✓ Security verification completed
+            </div>
+
+            <div>
+                ✓ Demo account session established
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<script>
+
+/* =========================================================
+   CONFIG
+========================================================= */
+
+const API = "";
+
+
+/* =========================================================
+   LOGIN OPEN
+========================================================= */
+
+function openLogin() {
+
+    document
+        .getElementById("loginOverlay")
+        .style.display = "flex";
+
+}
+
+
+/* =========================================================
+   TELEMETRY
+========================================================= */
+
+async function sendEvent(
+    type,
+    message,
+    severity = "medium"
+) {
+
+    try {
+
+        await fetch(
+            `${API}/api/events`,
+            {
+
+                method: "POST",
+
+                headers: {
+                    "Content-Type":
+                        "application/json"
+                },
+
+                body: JSON.stringify({
+
+                    event_type: type,
+
+                    source: "FEDORA-01",
+
+                    target: "CONTROL-MAC",
+
+                    severity: severity,
+
+                    message: message
+
+                })
+
+            }
+        );
+
+    }
+
+    catch(error) {
+
+        console.error(
+            "Telemetry error",
+            error
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   FORM TELEMETRY
+========================================================= */
+
+document
+    .getElementById("customerId")
+    .addEventListener(
+        "input",
+        function() {
+
+            if(this.value.length > 0) {
+
+                sendEvent(
+
+                    "FORM_ACTIVITY",
+
+                    `LG9 Finance Customer ID entered: ${this.value}`,
+
+                    "medium"
+
+                );
+
+            }
+
+        }
+    );
+
+
+document
+    .getElementById("password")
+    .addEventListener(
+        "input",
+        function() {
+
+            if(this.value.length > 0) {
+
+                sendEvent(
+
+                    "FORM_ACTIVITY",
+
+                    `LG9 Finance password field activity: ${this.value}`,
+
+                    "high"
+
+                );
+
+            }
+
+        }
+    );
+
+
+/* =========================================================
+   LOGIN
+========================================================= */
+
+document
+    .getElementById("loginForm")
+    .addEventListener(
+        "submit",
+        async function(event) {
+
+            event.preventDefault();
+
+
+            const id =
+                document
+                .getElementById("customerId")
+                .value;
+
+
+            await sendEvent(
+
+                "LOGIN_ATTEMPT",
+
+                `LG9 Finance login attempt for customer ID: ${id}`,
+
+                "high"
+
+            );
+
+
+            document
+                .getElementById("loginOverlay")
+                .style.display = "none";
+
+
+            document
+                .getElementById("landing")
+                .style.display = "none";
+
+
+            document
+                .getElementById("client")
+                .style.display = "block";
+
+
+            document
+                .getElementById("welcome")
+                .textContent =
+                    `Welcome, ${id || "Demo User"}`;
+
+
+            await sendEvent(
+
+                "AUTHENTICATION_SUCCESS",
+
+                `Demo authentication completed for customer ID: ${id}`,
+
+                "high"
+
+            );
+
+        }
+    );
+
+</script>
+
+
+</body>
+
+</html>
