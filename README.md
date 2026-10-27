@@ -1,4 +1,4 @@
-# LG9 Cross-Platform Cyber Threat Framework
+# Cross-Platform Cyber Threat Framework
 
 A centralized cybersecurity monitoring framework designed to demonstrate cross-platform endpoint monitoring, application-level security telemetry, persistent event storage, and real-time SOC visualization.
 
